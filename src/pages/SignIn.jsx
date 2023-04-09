@@ -8,6 +8,13 @@ export default function SignIn() {
   const [btnDisable, setBtnDisable] = useState("disabled");
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const token = window.localStorage.getItem("access_token");
+    if (token !== null) {
+      navigate("/todo");
+    }
+  }, []);
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -21,8 +28,7 @@ export default function SignIn() {
     if (email.includes("@") && password.length >= 8) {
       setEmail("");
       setPassword("");
-      console.log("😀");
-      navigate("/todo");
+      signIn();
     }
   };
 
@@ -31,6 +37,24 @@ export default function SignIn() {
       setBtnDisable("");
     } else setBtnDisable("disabled");
   }, [email, password]);
+
+  const signIn = () => {
+    fetch("https://www.pre-onboarding-selection-task.shop/auth/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        window.localStorage.setItem("access_token", res.access_token);
+        navigate("/todo");
+      });
+  };
 
   return (
     <div className="signInContainer">

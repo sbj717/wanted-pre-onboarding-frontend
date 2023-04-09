@@ -11,12 +11,12 @@ export default function TodoItem({
   const [editText, setEditText] = useState("");
 
   useEffect(() => {
-    setEditText(todo.text);
+    setEditText(todo.todo);
   }, []);
 
   const cancelEdit = () => {
     setEditToggle(!editToggle);
-    setEditText(todo.text);
+    setEditText(todo.todo);
   };
 
   const completeEdit = () => {
@@ -30,11 +30,11 @@ export default function TodoItem({
         <input
           className="checkbox"
           type="checkbox"
-          checked={todo.status}
+          checked={todo.isCompleted}
           onChange={() => handleCheckboxChange(todo.id)}
         />
         {editToggle === false ? (
-          <p>{todo.text}</p>
+          <p>{todo.todo}</p>
         ) : (
           <input
             className="textbox"
