@@ -1,6 +1,7 @@
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 const router = createBrowserRouter([
   {
@@ -9,8 +10,16 @@ const router = createBrowserRouter([
     errorElement: <p>Not Found</p>,
   },
   {
-    path: "/videos",
-    element: <p>Videos</p>,
+    path: "/signup",
+    element: <SignUp />,
+  },
+  {
+    path: "/signin",
+    element: <SignIn />,
+  },
+  {
+    path: "/todo",
+    element: <SignIn />,
   },
 ]);
 

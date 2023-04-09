@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import "./SignUp.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [btnDisable, setBtnDisable] = useState("disabled");
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -19,6 +22,7 @@ export default function SignUp() {
       setEmail("");
       setPassword("");
       console.log("😀");
+      navigate("/signin");
     }
   };
 
@@ -29,22 +33,29 @@ export default function SignUp() {
   }, [email, password]);
 
   return (
-    <div>
-      <form onClick={handleSubmit}>
-        <input
-          type="email"
-          placeholder="email"
-          value={email}
-          onChange={handleEmailChange}
-        ></input>
-        <input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={handlePasswordChange}
-        ></input>
-        <button disabled={btnDisable}>회원가입</button>
-      </form>
+    <div className="signUpContainer">
+      <div className="signUpWrap">
+        <h1>Sign Up</h1>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="email"
+            value={email}
+            onChange={handleEmailChange}
+            data-testid="email-input"
+          ></input>
+          <input
+            type="password"
+            placeholder="password"
+            value={password}
+            onChange={handlePasswordChange}
+            data-testid="password-input"
+          ></input>
+          <button data-testid="signup-button" disabled={btnDisable}>
+            회원가입
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
