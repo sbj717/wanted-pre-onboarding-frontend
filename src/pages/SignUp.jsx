@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./SignUp.css";
+import "./SignUp.scss";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
@@ -35,7 +35,7 @@ export default function SignUp() {
   return (
     <div className="signUpContainer">
       <div className="signUpWrap">
-        <h1>Sign Up</h1>
+        <h1>회원가입</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
