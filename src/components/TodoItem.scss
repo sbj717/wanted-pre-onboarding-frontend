@@ -1,0 +1,41 @@
+.itemWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 10px;
+
+  label {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 70%;
+    .checkbox {
+      width: 10%;
+    }
+    .textbox {
+      width: 90%;
+      margin: 0px;
+      margin-left: 5px;
+      font-size: 14px;
+    }
+    p {
+      width: 90%;
+      margin: 0px;
+      margin-left: 5px;
+      font-size: 14px;
+    }
+  }
+
+  .button {
+    width: 30%;
+    button {
+      width: 50%;
+      box-sizing: border-box;
+      box-shadow: none;
+    }
+  }
+}
