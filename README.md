@@ -16,5 +16,5 @@
 
 ## 데모 영상
 
-- 배포 링크로 대체
-- https://eclectic-centaur-ed369c.netlify.app/
+- 유튜브 링크: https://youtu.be/uF2YBvMm-VA
+- 배포 링크: https://eclectic-centaur-ed369c.netlify.app
