@@ -51,8 +51,10 @@ export default function SignIn() {
     })
       .then((res) => res.json())
       .then((res) => {
-        window.localStorage.setItem("access_token", res.access_token);
-        navigate("/todo");
+        if (res.access_token !== undefined) {
+          window.localStorage.setItem("access_token", res.access_token);
+          navigate("/todo");
+        }
       });
   };
 
